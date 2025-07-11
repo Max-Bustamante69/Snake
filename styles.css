@@ -27,7 +27,6 @@ body {
 /* Mobile body adjustments */
 @media (max-width: 450px) {
   body {
-    align-items: flex-start;
     padding: 0;
   }
 }
@@ -79,7 +78,7 @@ body {
   max-width: 98dvw;
   box-sizing: border-box;
   padding: 2dvw 2dvw 1.5dvw 2dvw;
-  min-height: 100dvh;
+  min-height: 60dvh;
   justify-content: center;
 }
 
@@ -95,7 +94,6 @@ body {
   }
   .container {
     padding: 1.5dvw;
-    min-height: 100dvh;
   }
   .title {
     font-size: 1.8rem;
@@ -113,7 +111,6 @@ body {
   .container {
     padding: 0.8rem;
     border-width: 0.4rem;
-    min-height: 100dvh;
     max-width: 100dvw;
     border-radius: 0;
     justify-content: space-evenly;
@@ -416,8 +413,8 @@ footer {
   .mobile-controls {
     display: flex;
     flex-direction: column;
-    margin: 1rem auto 0 auto;
     justify-content: center;
+    margin: 1rem;
     gap: 8px;
   }
   .mobile-controls div {
@@ -430,7 +427,6 @@ footer {
 /* Mobile controls responsiveness for small screens */
 @media (max-width: 450px) {
   .mobile-controls {
-    margin: 0.8rem auto 0 auto;
     gap: 6px;
   }
 
