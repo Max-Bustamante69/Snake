@@ -440,7 +440,6 @@ footer {
 
 @media (max-width: 390px) {
   .mobile-controls {
-    margin: 0.6rem auto 0 auto;
     gap: 4px;
   }
 
