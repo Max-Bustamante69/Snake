@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
 :root {
   --raccoon-gray: #6e6e6e;
@@ -10,13 +10,28 @@
 }
 
 body {
-  background: linear-gradient(135deg, var(--raccoon-gray), var(--raccoon-dark ));
-  min-height: 100vh;
+  background: linear-gradient(135deg, var(--raccoon-gray), var(--raccoon-dark));
+  min-height: 100dvh;
   margin: 0;
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
+}
+
+/* Mobile body adjustments */
+@media (max-width: 450px) {
+  body {
+    align-items: flex-start;
+    padding: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  body {
+    font-size: 14px;
+  }
 }
 
 .container {
@@ -26,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 0.8rem solid var(--raccoon-dark)
+  border: 0.8rem solid var(--raccoon-dark);
 }
 
 .title {
@@ -48,8 +63,8 @@ body {
   grid-template-columns: repeat(20, minmax(0, 1fr));
   width: 500px;
   height: 500px;
-  max-width: 90vw;
-  max-height: 70vw;
+  max-width: 90dvw;
+  max-height: 70dvw;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   transition: width 0.2s, height 0.2s;
@@ -57,36 +72,120 @@ body {
 
 /* Make the container also responsive */
 .container {
-  max-width: 98vw;
+  max-width: 98dvw;
   box-sizing: border-box;
-  padding: 2vw 2vw 1.5vw 2vw;
+  padding: 2dvw 2dvw 1.5dvw 2dvw;
+  min-height: 100dvh;
+  justify-content: center;
 }
 
 /* Responsive for tablets and small laptops */
 @media (max-width: 700px) {
   #gameBoard {
-    width: 90vw;
-    height: 90vw;
-    max-width: 98vw;
-    max-height: 98vw;
-    min-width: 220px;
-    min-height: 220px;
+    width: 85dvw;
+    height: 85dvw;
+    max-width: 450px;
+    max-height: 450px;
+    min-width: 280px;
+    min-height: 280px;
   }
   .container {
-    padding: 1vw;
+    padding: 1.5dvw;
+    min-height: 100dvh;
+  }
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
   }
 }
 
-/* Responsive for very small screens (phones) */
-@media (max-width: 400px), (max-height: 500px) {
-  #gameBoard {
-    width: 98vw;
-    height: 98vw;
-    min-width: 160px;
-    min-height: 160px;
+/* Responsive for small phones (390px and below) */
+@media (max-width: 450px) {
+  body {
+    padding: 0;
+    margin: 0;
   }
+
   .container {
-    padding: 0.5vw;
+    padding: 0.8rem;
+    border-width: 0.4rem;
+    min-height: 100dvh;
+    max-width: 100dvw;
+    border-radius: 0;
+    justify-content: space-evenly;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+
+  #gameBoard {
+    width: calc(100dvw - 2rem);
+    height: calc(100dvw - 2rem);
+    max-width: 350px;
+    max-height: 350px;
+    min-width: 250px;
+    min-height: 250px;
+    margin-bottom: 0.8rem;
+    border-width: 2px;
+  }
+
+  .score-board {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  #startBtn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  footer {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  footer p {
+    margin: 0;
+  }
+}
+
+/* Extra small phones (less than 390px) */
+@media (max-width: 390px) {
+  .container {
+    padding: 0.5rem;
+    border-width: 0.3rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  #gameBoard {
+    width: calc(100dvw - 1.5rem);
+    height: calc(100dvw - 1.5rem);
+    max-width: 320px;
+    max-height: 320px;
+    min-width: 220px;
+    min-height: 220px;
+    margin-bottom: 0.6rem;
+  }
+
+  .score-board {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+
+  #startBtn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
   }
 }
 
@@ -97,12 +196,12 @@ body {
   border-radius: 8px;
   font-size: 1.1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(44, 44, 44, 0.10);
+  box-shadow: 0 2px 8px rgba(44, 44, 44, 0.1);
 }
 
 .food {
   background-image: url("https://i.pinimg.com/736x/84/09/23/8409233332d43b25a0bfc1d4fd8ec6b0.jpg");
-  background-size: cover;      /* or 'contain' */
+  background-size: cover; /* or 'contain' */
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -112,20 +211,16 @@ body {
 }
 
 .racc-light {
-  background-color: var(--raccoon-light); 
+  background-color: var(--raccoon-light);
 }
 
 .racc-head {
   background-image: url("https://images.vexels.com/media/users/3/235022/isolated/preview/527a6623c5470950d6d3816d5de83402-raccoon-head-cute.png?w=360");
-  background-size: cover;      /* or 'contain' */
+  background-size: cover; /* or 'contain' */
   background-position: center;
   background-repeat: no-repeat;
   z-index: 2;
 }
-
-
-
-
 
 #startBtn {
   background: var(--raccoon-brown);
@@ -156,7 +251,10 @@ footer {
 /* Dialog Overlay */
 .game-dialog {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(24, 24, 24, 0.55);
   display: flex;
   align-items: center;
@@ -166,8 +264,12 @@ footer {
 }
 
 @keyframes fadeInDialog {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Dialog Box */
@@ -175,10 +277,10 @@ footer {
   background: var(--raccoon-dark);
   border-radius: 20px;
   padding: 2.5rem 2.5rem 2rem 2.5rem;
-  box-shadow: 0 8px 32px rgba(44,44,44,0.22);
+  box-shadow: 0 8px 32px rgba(44, 44, 44, 0.22);
   text-align: center;
   min-width: 320px;
-  max-width: 90vw;
+  max-width: 90dvw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -188,15 +290,81 @@ footer {
   border: 1rem var(--raccoon-black) solid;
 }
 
-.dialog-content img{
+.dialog-content img {
   width: 70%;
   height: auto;
   border-radius: 2rem;
 }
 
+/* Responsive dialog for small screens */
+@media (max-width: 450px) {
+  .dialog-content {
+    padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+    border-width: 0.6rem;
+    border-radius: 15px;
+    min-width: 280px;
+    max-width: 95dvw;
+    gap: 0.8rem;
+  }
+
+  .dialog-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .dialog-content p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0.3rem;
+  }
+
+  .dialog-content img {
+    width: 60%;
+    border-radius: 1.5rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .dialog-content {
+    padding: 1.2rem 1.2rem 1rem 1.2rem;
+    border-width: 0.4rem;
+    border-radius: 12px;
+    min-width: 260px;
+    max-width: 98dvw;
+    gap: 0.6rem;
+  }
+
+  .dialog-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .dialog-content p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    margin-top: 0.2rem;
+  }
+
+  .dialog-content img {
+    width: 55%;
+    border-radius: 1.2rem;
+  }
+
+  #dialogBtn {
+    padding: 0.6rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
 @keyframes popInDialog {
-  from { transform: scale(0.85); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .dialog-content h2 {
@@ -224,22 +392,18 @@ footer {
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(44,44,44,0.10);
+  box-shadow: 0 2px 8px rgba(44, 44, 44, 0.1);
   transition: background 0.2s, transform 0.1s;
   outline: none;
 }
 
-#dialogBtn:hover, #dialogBtn:focus {
-
+#dialogBtn:hover,
+#dialogBtn:focus {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(44,44,44,0.18);
+  box-shadow: 0 4px 16px rgba(44, 44, 44, 0.18);
 }
 
-
 /* mobile controls */
-
-
-
 .mobile-controls {
   display: none; /* Hide by default */
 }
@@ -248,11 +412,9 @@ footer {
   .mobile-controls {
     display: flex;
     flex-direction: column;
-    
     margin: 1rem auto 0 auto;
     justify-content: center;
     gap: 8px;
-    margin: 2rem;
   }
   .mobile-controls div {
     display: flex;
@@ -261,9 +423,41 @@ footer {
   }
 }
 
+/* Mobile controls responsiveness for small screens */
+@media (max-width: 450px) {
+  .mobile-controls {
+    margin: 0.8rem auto 0 auto;
+    gap: 6px;
+  }
+
+  .arrow {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    border-radius: 0.3rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .mobile-controls {
+    margin: 0.6rem auto 0 auto;
+    gap: 4px;
+  }
+
+  .mobile-controls div {
+    gap: 0.15rem;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
 .arrow {
   width: 50px;
-  height:50px;
+  height: 50px;
   background: var(--raccoon-dark);
   border: none;
   border-radius: 0.4rem;
@@ -275,5 +469,11 @@ footer {
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.arrow:active, .arrow:focus { background: var(--raccoon-dark); }
+.arrow:active,
+.arrow:focus {
+  background: var(--raccoon-gray);
+  transform: scale(0.95);
+}
