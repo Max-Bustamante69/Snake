@@ -20,6 +20,10 @@ body {
   overflow-x: hidden;
 }
 
+.hidden{
+  display: none;
+}
+
 /* Mobile body adjustments */
 @media (max-width: 450px) {
   body {

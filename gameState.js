@@ -16,6 +16,7 @@ export default class GameState {
     }
     this.running = true;
     this.score = 0;
+    this.ui.toggleStart();
     this.ui.updateScore(this.score);
     this.ui.clearBoard();
     this.loop();
@@ -23,6 +24,7 @@ export default class GameState {
   }
 
   stop(win = false) {
+    this.ui.toggleStart();
     this.running = false;
     clearInterval(this.interval);
     if (win) {

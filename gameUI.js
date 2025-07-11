@@ -2,6 +2,7 @@ export default class GameUI {
   constructor() {
     this.board = document.getElementById("gameBoard");
     this.scoreEl = document.getElementById("score");
+    this.start = document.getElementById('startBtn');
     this.dialog = this.createDialog();
     document.body.appendChild(this.dialog);
   }
@@ -60,5 +61,9 @@ export default class GameUI {
     el.style.gridRow = pos.x + 1;
     el.style.gridColumn = pos.y + 1;
     this.board.appendChild(el);
+  }
+
+  toggleStart(){
+    this.start.classList.toggle('hidden')
   }
 }
