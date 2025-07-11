@@ -23,7 +23,6 @@ body {
   background: var(--raccoon-light);
   border-radius: 18px;
   box-shadow: 0 8px 32px rgba(44, 44, 44, 0.18);
-  padding: 2rem 2.5rem 1.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,9 +43,51 @@ body {
   box-shadow: 0 4px 16px rgba(44, 44, 44, 0.12);
   margin-bottom: 1.2rem;
   display: grid;
-  grid-template-rows: repeat(20, 25px);
-  grid-template-columns:  repeat(20, 25px);
+  /* Default: 20x20 grid, each cell 25px */
+  grid-template-rows: repeat(20, minmax(0, 1fr));
+  grid-template-columns: repeat(20, minmax(0, 1fr));
+  width: 500px;
+  height: 500px;
+  max-width: 90vw;
+  max-height: 70vw;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
+  transition: width 0.2s, height 0.2s;
+}
+
+/* Make the container also responsive */
+.container {
+  max-width: 98vw;
+  box-sizing: border-box;
+  padding: 2vw 2vw 1.5vw 2vw;
+}
+
+/* Responsive for tablets and small laptops */
+@media (max-width: 700px) {
+  #gameBoard {
+    width: 90vw;
+    height: 90vw;
+    max-width: 98vw;
+    max-height: 98vw;
+    min-width: 220px;
+    min-height: 220px;
+  }
+  .container {
+    padding: 1vw;
+  }
+}
+
+/* Responsive for very small screens (phones) */
+@media (max-width: 400px), (max-height: 500px) {
+  #gameBoard {
+    width: 98vw;
+    height: 98vw;
+    min-width: 160px;
+    min-height: 160px;
+  }
+  .container {
+    padding: 0.5vw;
+  }
 }
 
 .score-board {
@@ -193,3 +234,46 @@ footer {
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 4px 16px rgba(44,44,44,0.18);
 }
+
+
+/* mobile controls */
+
+
+
+.mobile-controls {
+  display: none; /* Hide by default */
+}
+
+@media (pointer: coarse), (max-width: 800px) {
+  .mobile-controls {
+    display: flex;
+    flex-direction: column;
+    
+    margin: 1rem auto 0 auto;
+    justify-content: center;
+    gap: 8px;
+    margin: 2rem;
+  }
+  .mobile-controls div {
+    display: flex;
+    justify-content: center;
+    gap: 0.2rem;
+  }
+}
+
+.arrow {
+  width: 50px;
+  height:50px;
+  background: var(--raccoon-dark);
+  border: none;
+  border-radius: 0.4rem;
+  color: var(--raccoon-white);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.arrow:active, .arrow:focus { background: var(--raccoon-dark); }
