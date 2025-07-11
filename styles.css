@@ -49,12 +49,8 @@
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
-  background: linear-gradient(
-    135deg,
-    var(--raccoon-primary) 0%,
-    var(--raccoon-dark) 100%
-  );
-  min-height: 100vh;
+  background: black;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,8 +71,8 @@ body {
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-xl);
   padding: 2rem;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 90dvw;
+  max-height: 90dvh;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -166,8 +162,8 @@ body {
 .high-score-display {
   background: linear-gradient(
     135deg,
-    var(--raccoon-secondary),
-    var(--raccoon-accent)
+    var(--raccoon-dark),
+    var(--raccoon-darker)
   );
   color: var(--raccoon-white);
   padding: 1rem 1.5rem;
@@ -238,8 +234,8 @@ body {
   grid-template-columns: repeat(20, 1fr);
   width: 400px;
   height: 400px;
-  max-width: 80vw;
-  max-height: 80vw;
+  max-width: 80dvw;
+  max-height: 80dvw;
   aspect-ratio: 1;
   overflow: hidden;
   position: relative;
@@ -602,7 +598,7 @@ body {
   padding: 2.5rem;
   box-shadow: var(--shadow-xl);
   text-align: center;
-  max-width: 90vw;
+  max-width: 90dvw;
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -640,6 +636,11 @@ body {
   50% {
     transform: translateY(-10px);
   }
+}
+
+.dialog-image{
+  width: 100px;
+  height: 100px;
 }
 
 .dialog-title {
@@ -704,7 +705,7 @@ body {
 @media (max-width: 768px) {
   .game-container {
     padding: 1.5rem;
-    max-width: 95vw;
+    max-width: 95dvw;
     gap: 1rem;
   }
 
@@ -765,7 +766,7 @@ body {
 
   .dialog-content {
     padding: 2rem;
-    width: 90vw;
+    width: 90dvw;
   }
 
   .dialog-image {

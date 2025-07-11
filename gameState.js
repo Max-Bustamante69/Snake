@@ -8,7 +8,7 @@ export default class GameState {
     this.score = 0;
     this.running = false;
     this.interval = null;
-    this.gameSpeed = 150; // Initial speed
+    this.gameSpeed = 100; // Initial speed
   }
 
   start() {
