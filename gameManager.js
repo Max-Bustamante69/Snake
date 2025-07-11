@@ -47,23 +47,7 @@ export default class GameManager {
       this.state.start();
     });
 
-    // Mobile controls
-    const directions = ["up", "down", "left", "right"];
-    directions.forEach((dir) => {
-      const btn = document.querySelector(`.control-button.${dir}`);
-      if (btn) {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          if (!this.state.running) {
-            this.state.start();
-            return;
-          }
-          this.snake.setDirection(dir);
-        });
-      }
-    });
-
-    // Add touch event listeners for better mobile experience
+    // Add touch event listeners for swipe gestures
     this.addTouchListeners();
   }
 
@@ -72,10 +56,7 @@ export default class GameManager {
     document.addEventListener(
       "touchstart",
       (e) => {
-        if (
-          e.target.closest(".control-button") ||
-          e.target.closest("#gameBoard")
-        ) {
+        if (e.target.closest("#gameBoard")) {
           e.preventDefault();
         }
       },

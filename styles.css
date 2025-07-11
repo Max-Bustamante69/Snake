@@ -376,81 +376,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Mobile Controls */
-.mobile-controls {
-  display: none;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-@media (pointer: coarse), (max-width: 768px) {
-  .mobile-controls {
-    display: flex;
-  }
-}
-
-.control-row {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.control-button {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(
-    135deg,
-    var(--raccoon-dark),
-    var(--raccoon-primary)
-  );
-  border: none;
-  border-radius: var(--radius-md);
-  color: var(--raccoon-white);
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: var(--transition-fast);
-  box-shadow: var(--shadow-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.control-button::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transition: var(--transition-fast);
-  transform: translate(-50%, -50%);
-}
-
-.control-button:active::before {
-  width: 100%;
-  height: 100%;
-}
-
-.control-button:hover {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-lg);
-}
-
-.control-button:active {
-  transform: scale(0.95);
-}
-
-.control-icon {
-  font-weight: bold;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
 /* Game Footer */
 .game-footer {
   text-align: center;
@@ -638,11 +563,6 @@ body {
   }
 }
 
-.dialog-image{
-  width: 100px;
-  height: 100px;
-}
-
 .dialog-title {
   color: var(--raccoon-dark);
   font-size: 1.8rem;
@@ -731,12 +651,6 @@ body {
   .high-score-value {
     font-size: 1.25rem;
   }
-
-  .control-button {
-    width: 50px;
-    height: 50px;
-    font-size: 1.25rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -755,7 +669,6 @@ body {
   }
 
   .game-info {
-
     gap: 0.5rem;
   }
 
@@ -785,7 +698,6 @@ body {
 
 /* Focus styles for accessibility */
 button:focus,
-.control-button:focus,
 .start-button:focus,
 .dialog-button:focus {
   outline: 2px solid var(--raccoon-accent);
@@ -797,7 +709,7 @@ button:focus,
   .game-container {
     animation: none;
   }
-  
+
   .score-display::before,
   .high-score-display::before,
   .start-button::before,
@@ -825,8 +737,7 @@ button:focus,
     box-shadow: none;
     border: 1px solid #000;
   }
-  
-  .mobile-controls,
+
   .game-controls {
     display: none;
   }
