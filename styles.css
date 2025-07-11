@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root {
+  --raccoon-gray: #6e6e6e;
+  --raccoon-dark: #2d2d2d;
+  --raccoon-light: #bdbdbd;
+  --raccoon-white: #f5f5f5;
+  --raccoon-brown: #8d6748;
+  --raccoon-black: #181818;
+}
+
+body {
+  background: linear-gradient(135deg, var(--raccoon-gray), var(--raccoon-dark ));
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: var(--raccoon-light);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(44, 44, 44, 0.18);
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.8rem solid var(--raccoon-dark)
+}
+
+.title {
+  color: var(--raccoon-dark);
+  letter-spacing: 2px;
+  margin-bottom: 1.2rem;
+  text-shadow: 1px 2px 0 var(--raccoon-light);
+}
+
+#gameBoard {
+  background: var(--raccoon-white);
+  border: 4px solid var(--raccoon-black);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(44, 44, 44, 0.12);
+  margin-bottom: 1.2rem;
+  display: grid;
+  grid-template-rows: repeat(20, 25px);
+  grid-template-columns:  repeat(20, 25px);
+  overflow: hidden;
+}
+
+.score-board {
+  background: var(--raccoon-dark);
+  color: var(--raccoon-white);
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 44, 44, 0.10);
+}
+
+.food {
+  background-image: url("https://i.pinimg.com/736x/84/09/23/8409233332d43b25a0bfc1d4fd8ec6b0.jpg");
+  background-size: cover;      /* or 'contain' */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.racc {
+  background-color: var(--raccoon-gray);
+}
+
+.racc-light {
+  background-color: var(--raccoon-light); 
+}
+
+.racc-head {
+  background-image: url("https://images.vexels.com/media/users/3/235022/isolated/preview/527a6623c5470950d6d3816d5de83402-raccoon-head-cute.png?w=360");
+  background-size: cover;      /* or 'contain' */
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+
+
+
+
+#startBtn {
+  background: var(--raccoon-brown);
+  color: var(--raccoon-white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1.2rem;
+  transition: background 0.2s;
+}
+
+#startBtn:hover {
+  background: var(--raccoon-dark);
+}
+
+footer {
+  margin-top: 1rem;
+  color: var(--raccoon-gray);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* Dialog styles */
+/* Dialog Overlay */
+.game-dialog {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24, 24, 24, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeInDialog 0.3s;
+}
+
+@keyframes fadeInDialog {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Dialog Box */
+.dialog-content {
+  background: var(--raccoon-dark);
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  box-shadow: 0 8px 32px rgba(44,44,44,0.22);
+  text-align: center;
+  min-width: 320px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  animation: popInDialog 0.3s;
+  border: 1rem var(--raccoon-black) solid;
+}
+
+.dialog-content img{
+  width: 70%;
+  height: auto;
+  border-radius: 2rem;
+}
+
+@keyframes popInDialog {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.dialog-content h2 {
+  color: var(--raccoon-white);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.dialog-content p {
+  color: var(--raccoon-light);
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Dialog Button */
+#dialogBtn {
+  background: var(--raccoon-black);
+  color: var(--raccoon-white);
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(44,44,44,0.10);
+  transition: background 0.2s, transform 0.1s;
+  outline: none;
+}
+
+#dialogBtn:hover, #dialogBtn:focus {
+
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(44,44,44,0.18);
+}
