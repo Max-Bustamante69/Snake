@@ -8,6 +8,7 @@ export default class GameState {
     this.score = 0;
     this.running = false;
     this.interval = null;
+    this.gameSpeed = 150; // Initial speed
   }
 
   start() {
@@ -16,29 +17,28 @@ export default class GameState {
     }
     this.running = true;
     this.score = 0;
-    this.ui.toggleStart();
+    this.gameSpeed = 150;
+    this.ui.toggleStartButton(false);
     this.ui.updateScore(this.score);
     this.ui.clearBoard();
+    this.ui.hideGameOverlay();
+    this.ui.hideDialog();
     this.loop();
-    this.interval = setInterval(() => this.loop(), 100);
+    this.interval = setInterval(() => this.loop(), this.gameSpeed);
   }
 
   stop(win = false) {
-    this.ui.toggleStart();
+    this.ui.toggleStartButton(true);
     this.running = false;
     clearInterval(this.interval);
+
+    // Update high score
+    this.ui.updateHighScore(this.score);
+
     if (win) {
-      this.ui.showDialog(
-        "You Win!",
-        "Congratulations! 🦝",
-        "https://i.pinimg.com/736x/76/c9/70/76c970fe6f3fd3839bb06e96eaff654a.jpg"
-      );
+      this.ui.showDialog(this.score);
     } else {
-      this.ui.showDialog(
-        "Game Over",
-        "You lost! 🦝",
-        "https://live.staticflickr.com/7029/6823976429_3f465d44d5_b.jpg"
-      );
+      this.ui.showGameOverlay(this.score);
     }
   }
 
@@ -62,6 +62,12 @@ export default class GameState {
     ) {
       this.score++;
       this.ui.updateScore(this.score);
+      this.ui.showScoreAnimation();
+      this.ui.showFoodCollected();
+
+      // Increase speed slightly as score increases
+      this.increaseSpeed();
+
       if (this.snake.getLength() >= CONSTANTS.winLength) {
         this.stop(true);
         return;
@@ -75,5 +81,28 @@ export default class GameState {
     // Draw everything
     this.ui.drawFood(this.food);
     this.ui.drawSnake(this.snake);
+  }
+
+  increaseSpeed() {
+    // Increase speed every 5 points
+    if (this.score % 5 === 0 && this.gameSpeed > 50) {
+      this.gameSpeed -= 10;
+      clearInterval(this.interval);
+      this.interval = setInterval(() => this.loop(), this.gameSpeed);
+    }
+  }
+
+  pause() {
+    if (this.running) {
+      this.running = false;
+      clearInterval(this.interval);
+    }
+  }
+
+  resume() {
+    if (!this.running) {
+      this.running = true;
+      this.interval = setInterval(() => this.loop(), this.gameSpeed);
+    }
   }
 }

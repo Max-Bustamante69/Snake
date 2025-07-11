@@ -5,43 +5,105 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raccoon Snake Game</title>
+    <meta name="description"
+        content="Play the cutest raccoon-themed snake game with modern design and smooth animations!">
     <link rel="icon" type="image/png"
         href="https://images.vexels.com/media/users/3/235022/isolated/preview/527a6623c5470950d6d3816d5de83402-raccoon-head-cute.png?w=360">
     <meta property="og:image" content="https://i.pinimg.com/736x/84/09/23/8409233332d43b25a0bfc1d4fd8ec6b0.jpg">
     <meta property="og:title" content="Raccoon Snake Game">
-    <meta property="og:description" content="Play the cutest raccoon-themed snake game!">
+    <meta property="og:description" content="Play the cutest raccoon-themed snake game with modern design!">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://i.pinimg.com/736x/84/09/23/8409233332d43b25a0bfc1d4fd8ec6b0.jpg">
     <meta name="twitter:title" content="Raccoon Snake Game">
-    <meta name="twitter:description" content="Play the cutest raccoon-themed snake game!">
+    <meta name="twitter:description" content="Play the cutest raccoon-themed snake game with modern design!">
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="title">Raccoon Snake</h1>
-        <div id="gameBoard"></div>
-        <div class="score-board">
-            <span>Score: <span id="score">0</span></span>
-        </div>
-    <div class="mobile-controls">
-        <div>
-            <button class="arrow up" aria-label="Up">↑</button>
-        </div>
-        <div>
-            <button class="arrow left" aria-label="Left">←</button>
-            <button class="arrow down" aria-label="Down">↓</button>
-            <button class="arrow right" aria-label="Right">→</button>
-        </div>
-    </div>
-        <button id="startBtn">Start Game</button>
-        <footer>
-            <p>Inspired by raccoons 🦝</p>
-        </footer>
-        
-    </div>
+    <main class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">
+                <span class="title-icon">🦝</span>
+                Raccoon Snake
+                <span class="title-icon">🦝</span>
+            </h1>
+            <p class="game-subtitle">Collect treats and grow your raccoon family!</p>
+        </header>
 
+        <section class="game-section">
+            <div class="game-info">
+                <div class="score-display">
+                    <span class="score-label">Score</span>
+                    <span class="score-value" id="score">0</span>
+                </div>
+                <div class="high-score-display">
+                    <span class="high-score-label">Best</span>
+                    <span class="high-score-value" id="highScore">0</span>
+                </div>
+            </div>
+
+            <div class="game-board-container">
+                <div id="gameBoard" class="game-board" role="application" aria-label="Snake game board"></div>
+                <div class="game-overlay" id="gameOverlay">
+                    <div class="overlay-content">
+                        <h2 class="overlay-title">Game Over!</h2>
+                        <p class="overlay-message">Your raccoon family grew to <span id="finalScore">0</span> members!
+                        </p>
+                        <button class="overlay-button" id="restartBtn">Play Again</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button id="startBtn" class="start-button" aria-label="Start new game">
+                    <span class="button-icon">🎮</span>
+                    Start Game
+                </button>
+
+                <div class="mobile-controls" aria-label="Mobile game controls">
+                    <div class="control-row">
+                        <button class="control-button up" aria-label="Move up">
+                            <span class="control-icon">↑</span>
+                        </button>
+                    </div>
+                    <div class="control-row">
+                        <button class="control-button left" aria-label="Move left">
+                            <span class="control-icon">←</span>
+                        </button>
+                        <button class="control-button down" aria-label="Move down">
+                            <span class="control-icon">↓</span>
+                        </button>
+                        <button class="control-button right" aria-label="Move right">
+                            <span class="control-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="game-footer">
+            <p class="footer-text">
+                <span class="footer-icon">🦝</span>
+                Inspired by raccoons
+                <span class="footer-icon">🦝</span>
+            </p>
+            <p class="footer-instructions">
+                Use arrow keys or tap controls to move your raccoon
+            </p>
+        </footer>
+    </main>
+
+    <!-- Game Dialog for win/lose states -->
+    <div class="game-dialog hidden" id="gameDialog" role="dialog" aria-labelledby="dialogTitle">
+        <div class="dialog-content">
+            <img src="https://images.vexels.com/media/users/3/235022/isolated/preview/527a6623c5470950d6d3816d5de83402-raccoon-head-cute.png?w=360"
+                alt="Cute raccoon" class="dialog-image">
+            <h2 id="dialogTitle" class="dialog-title">Game Over!</h2>
+            <p class="dialog-message">Your raccoon family grew to <span id="dialogScore">0</span> members!</p>
+            <button id="dialogBtn" class="dialog-button">Play Again</button>
+        </div>
+    </div>
 </body>
 
 </html>
